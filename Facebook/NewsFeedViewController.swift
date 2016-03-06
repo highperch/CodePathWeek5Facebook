@@ -76,7 +76,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         imageTransition.transitionImageViewImage = self.imageViews[selectedIndex].image
         imageTransition.transitionScrollView = scrollView
         destinationViewController.linkedImage = self.imageViews[selectedIndex].image
-
+        destinationViewController.scrollViewOffset = CGFloat(Int(selectedIndex) * 320)
     }
 
     

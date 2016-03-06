@@ -134,35 +134,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="6GG-Vw-L87">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" maximumZoomScale="2" id="6GG-Vw-L87">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="e48-vt-yiK">
-                                        <rect key="frame" x="0.0" y="42" width="320" height="482"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photo_actions" id="tDJ-es-E5G">
-                                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding5" id="fXn-8b-4zm">
+                                        <rect key="frame" x="1280" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hn3-gk-8AA">
-                                        <rect key="frame" x="261" y="15" width="51" height="27"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding4" id="sWC-1v-eA6">
+                                        <rect key="frame" x="960" y="42" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding3" id="eZa-Mk-0Hb">
+                                        <rect key="frame" x="640" y="42" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding2" id="M0y-hI-7DV">
+                                        <rect key="frame" x="320" y="42" width="320" height="482"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding1" id="e48-vt-yiK">
+                                        <rect key="frame" x="0.0" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="doneButton"/>
-                                        <connections>
-                                            <action selector="didTapDone:" destination="1uK-J4-ZlX" eventType="touchUpInside" id="M8t-x9-CmA"/>
-                                        </connections>
-                                    </button>
+                                        <gestureRecognizers/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hn3-gk-8AA">
+                                <rect key="frame" x="262" y="15" width="51" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="doneButton"/>
+                                <connections>
+                                    <action selector="didTapDone:" destination="1uK-J4-ZlX" eventType="touchUpInside" id="M8t-x9-CmA"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="photo_actions" id="tDJ-es-E5G">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="x8r-aH-8Fh"/>
                     <connections>
-                        <outlet property="imageView" destination="e48-vt-yiK" id="kp0-Wd-yOa"/>
+                        <outlet property="doneButton" destination="hn3-gk-8AA" id="ghd-0R-6Im"/>
+                        <outlet property="photoActions" destination="tDJ-es-E5G" id="2jC-M3-sKe"/>
                         <outlet property="scrollView" destination="6GG-Vw-L87" id="QSy-PM-8fO"/>
                     </connections>
                 </viewController>

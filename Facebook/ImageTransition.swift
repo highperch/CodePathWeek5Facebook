@@ -20,7 +20,7 @@ class ImageTransition: BaseTransition {
         //transitionImageView = UIImageView(frame: CGRect(x: 3, y: 83, width: 156, height: 156))
         transitionImageView = UIImageView(frame: transitionImageViewFrame)
         //transitionImageView.image = UIImage(named: "wedding3")
-        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFit
         transitionImageView.image = transitionImageViewImage
         transitionScrollView.addSubview(transitionImageView)
         
@@ -39,7 +39,7 @@ class ImageTransition: BaseTransition {
         
         transitionImageView = UIImageView(frame: CGRect(x: 0, y: 42, width: 320, height: 482))
         transitionImageView.image = transitionImageViewImage
-        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFit
         transitionScrollView.addSubview(transitionImageView)
         fromViewController.view.alpha = 1
         
