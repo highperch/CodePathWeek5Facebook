@@ -11,18 +11,24 @@ import UIKit
 class ImageTransition: BaseTransition {
     
     var transitionImageView: UIImageView!
+    var transitionScrollView: UIScrollView!
+    var transitionImageViewImage: UIImage!
     var transitionImageViewFrame: CGRect!
     
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
-        transitionImageView = UIImageView(frame: CGRect(x: 0, y: 75, width: 320, height: 320))
-        transitionImageView.image = UIImage(named: "wedding1")
+        //transitionImageView = UIImageView(frame: CGRect(x: 3, y: 83, width: 156, height: 156))
+        transitionImageView = UIImageView(frame: transitionImageViewFrame)
+        //transitionImageView.image = UIImage(named: "wedding3")
+        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        transitionImageView.image = transitionImageViewImage
+        transitionScrollView.addSubview(transitionImageView)
         
-        var transitionImageTransform = CGAffineTransformMakeScale(16/15, 16/15)
-        
+        toViewController.view.alpha = 0
 
         UIView.animateWithDuration(duration, animations: {
-            //self.transitionImageView.frame = self.transitionImageViewFrame
+            self.transitionImageView.frame = CGRect(x: 0, y: 42, width: 320, height: 482)
+            toViewController.view.alpha = 1
             }) { (finished: Bool) -> Void in
                 self.transitionImageView.removeFromSuperview()
                 self.finish()
@@ -32,12 +38,14 @@ class ImageTransition: BaseTransition {
     override func dismissTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
         transitionImageView = UIImageView(frame: CGRect(x: 0, y: 42, width: 320, height: 482))
-        transitionImageView.image = UIImage(named: "wedding1")
-        
-        var transitionImageTransform = CGAffineTransformMakeScale(15/16, 15/16)
+        transitionImageView.image = transitionImageViewImage
+        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        transitionScrollView.addSubview(transitionImageView)
+        fromViewController.view.alpha = 1
         
         UIView.animateWithDuration(duration, animations: {
             
+            fromViewController.view.alpha = 0
             self.transitionImageView.frame = self.transitionImageViewFrame
             
             }) { (finished: Bool) -> Void in

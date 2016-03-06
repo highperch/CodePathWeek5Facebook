@@ -38,19 +38,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         
         selectedPhotoFrame = sender.view!.frame
         
-        imageTransition.transitionImageViewFrame! = selectedPhotoFrame
-        
-        self.performSegueWithIdentifier("photoSegue", sender: self) 
-    }
-    
-    
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+        self.performSegueWithIdentifier("photoSegue", sender: self)
     }
     
     override func viewDidLoad() {
@@ -70,16 +58,23 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        /*
         let destinationVC = segue.destinationViewController as UIViewController
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationVC.transitioningDelegate = self
+        */
         
         var destinationViewController = segue.destinationViewController as! PhotoViewController
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        
         imageTransition = ImageTransition()
         destinationViewController.transitioningDelegate = imageTransition
         imageTransition.duration = 1
         
+        imageTransition.transitionImageViewFrame = selectedPhotoFrame
+        imageTransition.transitionImageViewImage = self.imageViews[selectedIndex].image
+        imageTransition.transitionScrollView = scrollView
         destinationViewController.linkedImage = self.imageViews[selectedIndex].image
 
     }

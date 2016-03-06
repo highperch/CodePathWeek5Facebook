@@ -11,6 +11,7 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var linkedImage: UIImage!
     
@@ -21,6 +22,7 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = linkedImage
+        scrollView.contentSize = imageView.frame.size
         // Do any additional setup after loading the view.
     }
 
