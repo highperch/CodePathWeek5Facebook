@@ -129,32 +129,32 @@
         <!--Photo View Controller-->
         <scene sceneID="QEP-vf-rFU">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="1uK-J4-ZlX" customClass="PhotoViewController" customModule="Facebook" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wZ9-mS-CnD">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="1uK-J4-ZlX" customClass="PhotoViewController" customModule="Facebook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="wZ9-mS-CnD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" maximumZoomScale="2" id="6GG-Vw-L87">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" maximumZoomScale="2" id="6GG-Vw-L87">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding5" id="fXn-8b-4zm">
+                                    <imageView opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" image="wedding5" id="fXn-8b-4zm">
                                         <rect key="frame" x="1280" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding4" id="sWC-1v-eA6">
+                                    <imageView opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleAspectFill" image="wedding4" id="sWC-1v-eA6">
                                         <rect key="frame" x="960" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding3" id="eZa-Mk-0Hb">
+                                    <imageView opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleAspectFill" image="wedding3" id="eZa-Mk-0Hb">
                                         <rect key="frame" x="640" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="wedding2" id="M0y-hI-7DV">
+                                    <imageView opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleAspectFill" image="wedding2" id="M0y-hI-7DV">
                                         <rect key="frame" x="320" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding1" id="e48-vt-yiK">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding1" id="e48-vt-yiK">
                                         <rect key="frame" x="0.0" y="42" width="320" height="482"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
@@ -175,13 +175,17 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="x8r-aH-8Fh"/>
                     <connections>
                         <outlet property="doneButton" destination="hn3-gk-8AA" id="ghd-0R-6Im"/>
                         <outlet property="photoActions" destination="tDJ-es-E5G" id="2jC-M3-sKe"/>
                         <outlet property="scrollView" destination="6GG-Vw-L87" id="QSy-PM-8fO"/>
+                        <outlet property="wedding1" destination="e48-vt-yiK" id="YOD-mM-TrH"/>
+                        <outlet property="wedding2" destination="M0y-hI-7DV" id="pdh-C1-KW3"/>
+                        <outlet property="wedding3" destination="eZa-Mk-0Hb" id="JFp-Ns-fUY"/>
+                        <outlet property="wedding4" destination="sWC-1v-eA6" id="1Se-ti-5Vr"/>
+                        <outlet property="wedding5" destination="fXn-8b-4zm" id="iz2-bo-Chp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCw-gv-niO" userLabel="First Responder" sceneMemberID="firstResponder"/>

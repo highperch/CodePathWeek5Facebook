@@ -59,24 +59,23 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        /*
-        let destinationVC = segue.destinationViewController as UIViewController
-        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationVC.transitioningDelegate = self
-        */
-        
+        if segue.identifier == "photoSegue" {
         var destinationViewController = segue.destinationViewController as! PhotoViewController
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         
         imageTransition = ImageTransition()
         destinationViewController.transitioningDelegate = imageTransition
-        imageTransition.duration = 1
+        imageTransition.duration = 0.8
         
-        imageTransition.transitionImageViewFrame = selectedPhotoFrame
-        imageTransition.transitionImageViewImage = self.imageViews[selectedIndex].image
+        imageTransition.transitionImageView = self.imageViews[selectedIndex]
         imageTransition.transitionScrollView = scrollView
+        
         destinationViewController.linkedImage = self.imageViews[selectedIndex].image
         destinationViewController.scrollViewOffset = CGFloat(Int(selectedIndex) * 320)
+        destinationViewController.selectedIndex = selectedIndex
+        } else {
+            
+        }
     }
 
     

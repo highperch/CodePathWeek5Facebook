@@ -12,24 +12,31 @@ class ImageTransition: BaseTransition {
     
     var transitionImageView: UIImageView!
     var transitionScrollView: UIScrollView!
-    var transitionImageViewImage: UIImage!
-    var transitionImageViewFrame: CGRect!
+    
+    var endTransitionImageView: UIImageView!
+    var endTransitionScrollView: UIScrollView!
+    
+    var window = UIApplication.sharedApplication().keyWindow!
     
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
-        //transitionImageView = UIImageView(frame: CGRect(x: 3, y: 83, width: 156, height: 156))
-        transitionImageView = UIImageView(frame: transitionImageViewFrame)
-        //transitionImageView.image = UIImage(named: "wedding3")
-        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFit
-        transitionImageView.image = transitionImageViewImage
-        transitionScrollView.addSubview(transitionImageView)
+        let newsFeedViewController = fromViewController as! NewsFeedViewController
+        let photoViewController = toViewController as! PhotoViewController
+        
+        var frame = window.convertRect(newsFeedViewController.imageViews[newsFeedViewController.selectedIndex].frame, fromView: newsFeedViewController.scrollView)
+        
+        transitionImageView = UIImageView(frame: frame)
+        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        transitionImageView.image = newsFeedViewController.imageViews[newsFeedViewController.selectedIndex].image
+        window.addSubview(transitionImageView)
         
         toViewController.view.alpha = 0
+        fromViewController.view.alpha = 1
 
         UIView.animateWithDuration(duration, animations: {
-            self.transitionImageView.frame = CGRect(x: 0, y: 42, width: 320, height: 482)
-            toViewController.view.alpha = 1
+            self.transitionImageView.frame = photoViewController.imageViews[0].frame
             }) { (finished: Bool) -> Void in
+                toViewController.view.alpha = 1
                 self.transitionImageView.removeFromSuperview()
                 self.finish()
         }
@@ -37,19 +44,26 @@ class ImageTransition: BaseTransition {
     
     override func dismissTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
-        transitionImageView = UIImageView(frame: CGRect(x: 0, y: 42, width: 320, height: 482))
-        transitionImageView.image = transitionImageViewImage
-        transitionImageView.contentMode = UIViewContentMode.ScaleAspectFit
-        transitionScrollView.addSubview(transitionImageView)
-        fromViewController.view.alpha = 1
+        let newsFeedViewController = toViewController as! NewsFeedViewController
+        let photoViewController = fromViewController as! PhotoViewController
+        
+        var frame = window.convertRect(photoViewController.imageViews[photoViewController.selectedIndex].frame, fromView: photoViewController.scrollView)
+        var endFrame = window.convertRect(newsFeedViewController.imageViews[photoViewController.selectedIndex].frame, fromView: newsFeedViewController.scrollView)
+        
+        endTransitionImageView = UIImageView(frame: frame)
+        endTransitionImageView.image = photoViewController.imageViews[photoViewController.selectedIndex].image
+        endTransitionImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        window.addSubview(endTransitionImageView)
+        
+        fromViewController.view.alpha = 0
+        toViewController.view.alpha = 1
         
         UIView.animateWithDuration(duration, animations: {
             
-            fromViewController.view.alpha = 0
-            self.transitionImageView.frame = self.transitionImageViewFrame
+            self.endTransitionImageView.frame = endFrame
             
             }) { (finished: Bool) -> Void in
-                self.transitionImageView.removeFromSuperview()
+                self.endTransitionImageView.removeFromSuperview()
                 self.finish()
         }
     }
